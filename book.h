@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #ifndef book_h
 #define book_h
 
@@ -16,10 +18,20 @@ typedef struct _book{
 	int bookStock;												//图书存量
 } Book;
 
+FILE *fopenC(char *);
+FILE *fopenR(char *);
+FILE *fopenW(char *);
+void readBookInfo(char *, Book *);
+void writeBookInfo(char *, Book *);
+void outBookInfo(Book *);
+void dispBookInfo(char *);
+
 void addBook();													//添加图书
-void deleBook();												//删除图书
+void deleBookByNum();											//删除图书
 void editBook();												//编辑图书
-void findBook();												//查找图书
+Book *findBookByAuthor(char *, char*);							//查找图书
+Book *findBookByNum(int , char*);								//查找图书
+Book *findBookByISBN(char *, char*);							//查找图书
 void menuBook();												//图书菜单
 
 #endif
